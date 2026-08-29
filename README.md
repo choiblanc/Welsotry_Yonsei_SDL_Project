@@ -1,202 +1,46 @@
-# Welsotry_Yonsei_SDL_Project
-<Window x:Class="SDL_YONSEI_MANUAL.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="SDL(Side Dish Loader) 대면배식 로봇 소개 프로그램" Height="850" Width="1400" MinHeight="700" MinWidth="1000" Background="#F0F2F5">
+# 🤖 SDL(Side Dish Loader) 연세대학교 대면배식 로봇 매뉴얼
 
-    <Window.Resources>
-        <!-- 버튼 기본 스타일 -->
-        <Style x:Key="MenuButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#FFFFFF"/>
-            <Setter Property="Foreground" Value="#333333"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Height" Value="52"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Padding" Value="24,0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" 
-                                BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="8">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#F3F4F6"/>
-                                <Setter TargetName="border" Property="BorderBrush" Value="#004B93"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+삼성웰스토리 연세대학교 사업장에 적용된 **Side Dish Loader(대면배식 로봇)** 장비의 운용, 소프트웨어 사용법 및 비상정지 복구 절차를 안내하기 위해 제작된 WPF 기반 키오스크형 매뉴얼 프로그램입니다.
 
-        <!-- 미디어 조작 버튼 스타일 -->
-        <Style x:Key="MediaBtnStyle" TargetType="Button">
-            <Setter Property="Background" Value="#FFFFFF"/>
-            <Setter Property="Foreground" Value="#1F2937"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Height" Value="36"/>
-            <Setter Property="Width" Value="90"/>
-            <Setter Property="Margin" Value="4,0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="#D1D5DB" BorderThickness="1" CornerRadius="6">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#E5E7EB"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+인터넷 연결이 불가능한 현장 환경을 고려하여 **독립 실행형(Self-Contained Single EXE)** 으로 빌드 및 배포할 수 있도록 최적화되었습니다.
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="65"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+---
 
-        <!-- 상단 헤더 -->
-        <Border Grid.Row="0" Background="#004B93" Padding="25,0">
-            <DockPanel VerticalAlignment="Center">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Border Background="#1E60A8" CornerRadius="4" Padding="8,4" Margin="0,0,12,0">
-                        <TextBlock Text="삼성웰스토리" Foreground="#E0F2FE" FontSize="12" FontWeight="Bold"/>
-                    </Border>
-                    <TextBlock Text="연세대학교 SDL 로봇 장비 매뉴얼" Foreground="White" FontSize="19" FontWeight="Bold" VerticalAlignment="Center"/>
-                </StackPanel>
+## 📸 주요 기능 및 화면 구성
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="담당자 문의  |" Foreground="#93C5FD" FontSize="13" Margin="0,0,8,0" VerticalAlignment="Center"/>
-                    <TextBlock Text="한국로보틱스 최성환 연구원 (010-4620-8838)" Foreground="White" FontSize="13" FontWeight="SemiBold" VerticalAlignment="Center"/>
-                </StackPanel>
-            </DockPanel>
-        </Border>
+* **1. 작업 환경 (Work Environment):** C# 사용
+* <img width="2557" height="1533" alt="image" src="https://github.com/user-attachments/assets/20b3efc4-79f2-4e03-8a79-51ce85191b24" />
+ 
+* **2. 장비 개요 (Overview):** 로봇 기구부(대차, 쇼케이스) 구성 및 기본 배식 동작 메커니즘 안내 (비디오 매뉴얼)
+* <img width="1726" height="1049" alt="image" src="https://github.com/user-attachments/assets/7d660a52-1782-461a-99f5-49a1f4ed93e2" />
 
-        <!-- 메인 콘텐츠 영역 -->
-        <Grid Grid.Row="1" Margin="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="240"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+* **3. 사용자 매뉴얼 (User Guide):** 매뉴얼 가이드 문서 탑재 (이미지 슬라이더 제어)
+* <img width="1729" height="1049" alt="image" src="https://github.com/user-attachments/assets/4e6b7e37-8346-428f-9547-853bbfff0178" />
 
-            <!-- 좌측: 모듈 선택 메뉴 -->
-            <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="16" Margin="0,0,16,0">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Direction="270" Color="#000000" Opacity="0.05"/>
-                </Border.Effect>
-                <StackPanel>
-                    <TextBlock Text="NAVIGATION" FontSize="11" FontWeight="Bold" Foreground="#9CA3AF" Margin="4,4,0,12"/>
+* **4. 프로그램 사용법 (Software Manual):** 소프트웨어 인터페이스 및 제어 프로세스 가이드
+* <img width="1732" height="1053" alt="image" src="https://github.com/user-attachments/assets/a5fc8e9f-61f7-4d9b-8f19-6fb5f0a1d973" />
 
-                    <Button Click="Menu_Click" Tag="OVERVIEW" Style="{StaticResource MenuButtonStyle}">
-                        <TextBlock Text="1. 장비 개요" Margin="6,0,0,0"/>
-                    </Button>
+* **5. 비상정지 복구 (Emergency Recovery):** EMO 발생 및 PFL 충돌 감지 시 복구 절차 안내 (비디오 매뉴얼)
+* <img width="1728" height="1055" alt="image" src="https://github.com/user-attachments/assets/6f3769ce-04c5-4ea4-8132-939de4a2e276" />
 
-                    <Button Click="Menu_Click" Tag="MOTION" Style="{StaticResource MenuButtonStyle}">
-                        <TextBlock Text="2. 사용자 매뉴얼" Margin="6,0,0,0"/>
-                    </Button>
 
-                    <Button Click="Menu_Click" Tag="SOFTWARE" Style="{StaticResource MenuButtonStyle}">
-                        <TextBlock Text="3. 프로그램 사용법" Margin="6,0,0,0"/>
-                    </Button>
+---
 
-                    <Button Click="Menu_Click" Tag="EMERGENCY" Style="{StaticResource MenuButtonStyle}">
-                        <TextBlock Text="4. 비상정지 복구" Margin="6,0,0,0"/>
-                    </Button>
-                </StackPanel>
-            </Border>
+## 🛠 기술 스택 (Tech Stack)
 
-            <!-- 우측: 콘텐츠 영역 -->
-            <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="24">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Direction="270" Color="#000000" Opacity="0.05"/>
-                </Border.Effect>
+* **Framework:** .NET 8.0 (WPF)
+* **Language:** C#
+* **Markup:** XAML
+* **Deployment:** Self-Contained, Win-x64 Single File (.exe)
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+---
 
-                    <!-- 상단 제목 -->
-                    <StackPanel Grid.Row="0" Margin="0,0,0,16">
-                        <TextBlock x:Name="TxtTitle" Text="1. 장비 개요" FontSize="22" FontWeight="Bold" Foreground="#111827"/>
-                        <Rectangle Height="2" Fill="#E5E7EB" Margin="0,12,0,0"/>
-                    </StackPanel>
+## 📁 주요 프로젝트 구조
 
-                    <!-- 하단 분할 영역 -->
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="6.5*"/>
-                            <ColumnDefinition Width="3.5*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <!-- 좌측: 미디어 플레이어 영역 -->
-                        <Border Grid.Column="0" Background="#111827" CornerRadius="10" Padding="12" Margin="0,0,16,0">
-                            <Grid x:Name="MediaContainer">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-
-                                <!-- 이미지 패널 -->
-                                <Grid Grid.Row="0" x:Name="ImagePanel" Visibility="Collapsed">
-                                    <Image x:Name="ImgMain" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                                </Grid>
-
-                                <!-- 동영상 패널 -->
-                                <Grid Grid.Row="0" x:Name="VideoPanel" Visibility="Visible" SizeChanged="VideoPanel_SizeChanged">
-                                    <MediaElement x:Name="MediaMain" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Uniform" MediaEnded="MediaMain_MediaEnded" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <MediaElement.RenderTransform>
-                                            <TransformGroup>
-                                                <RotateTransform x:Name="VideoRotate" Angle="0" CenterX="0.5" CenterY="0.5"/>
-                                            </TransformGroup>
-                                        </MediaElement.RenderTransform>
-                                        <MediaElement.RenderTransformOrigin>
-                                            <Point X="0.5" Y="0.5"/>
-                                        </MediaElement.RenderTransformOrigin>
-                                    </MediaElement>
-                                </Grid>
-
-                                <!-- 컨트롤 버튼 영역 -->
-                                <StackPanel Grid.Row="1" Margin="0,12,0,4">
-                                    <!-- 이미지 컨트롤 -->
-                                    <StackPanel x:Name="ImageControls" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Collapsed">
-                                        <Button Content="◀ 이전" Click="BtnPrev_Click" Style="{StaticResource MediaBtnStyle}"/>
-                                        <TextBlock x:Name="TxtPageInfo" Text="1 / 1" VerticalAlignment="Center" Margin="16,0" FontWeight="Bold" FontSize="14" Foreground="White"/>
-                                        <Button Content="다음 ▶" Click="BtnNext_Click" Style="{StaticResource MediaBtnStyle}"/>
-                                    </StackPanel>
-
-                                    <!-- 비디오 컨트롤 -->
-                                    <StackPanel x:Name="VideoControls" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
-                                        <Button Content="▶ 재생" Click="BtnPlay_Click" Style="{StaticResource MediaBtnStyle}"/>
-                                        <Button Content="❚❚ 일시정지" Click="BtnPause_Click" Style="{StaticResource MediaBtnStyle}" Width="100"/>
-                                        <Button Content="◼ 정지" Click="BtnStop_Click" Style="{StaticResource MediaBtnStyle}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-
-                        <!-- 우측: 상세 설명 영역 -->
-                        <Border Grid.Column="1" Background="#F9FAFB" CornerRadius="10" Padding="20" BorderBrush="#E5E7EB" BorderThickness="1">
-                            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                <TextBlock x:Name="TxtDescription" Text="상세 설명 내용이 표시됩니다." FontSize="14" LineHeight="26" Foreground="#374151" TextWrapping="Wrap"/>
-                            </ScrollViewer>
-                        </Border>
-                    </Grid>
-                </Grid>
-            </Border>
-        </Grid>
-    </Grid>
-</Window>
+```text
+SDL_YONSEI_MANUAL/
+├── App.xaml / App.xaml.cs            # 애플리케이션 시작 및 진입점
+├── MainWindow.xaml                   # 대시보드 UI 레이아웃 및 스타일 정의
+├── MainWindow.xaml.cs                # 미디어 제어 및 이벤트 핸들링 로직
+├── sdl_overview.mp4                  # 장비 개요 시연 영상
+└── sdl_emo.mp4                       # 비상정지 복구 가이드 영상
